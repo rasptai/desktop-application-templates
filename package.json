@@ -1,0 +1,34 @@
+{
+  "name": "templates",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./out/main/main.js",
+  "author": "Taichi Yoshimura",
+  "license": "MIT",
+  "scripts": {
+    "compile:main": "vite build --config vite.config.main.ts",
+    "compile:preload": "vite build --config vite.config.preload.ts",
+    "compile": "run-s compile:*",
+    "dev:api": "uvicorn api.main:app --reload",
+    "dev:vite": "vite",
+    "dev:electron": "wait-on http://localhost:5173/ && electron .",
+    "dev": "npm run compile && run-p -r dev:*",
+    "build": "npm run compile && vite build"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.1",
+    "wait-on": "^8.0.1"
+  }
+}
